@@ -1,4 +1,4 @@
-import './ReviewWidget.scss';
+import './ReviewsWidget.scss';
 
 import {
     IDocumentItem,
@@ -12,7 +12,9 @@ import Button, {
 } from 'src/components/Button/Button';
 import DocumentItem from 'src/components/DocumentItem/DocumentItem';
 
-const b = b_.with('review-widget');
+const b = b_.with('reviews-widget');
+
+const VISIBLE_ITEMS_COUNT = 1;
 
 interface IProps {
     reviews: {
@@ -23,27 +25,30 @@ interface IProps {
     };
 }
 
-export default function ReviewWidget({
+export default function ReviewsWidget({
     reviews: {
         items,
         total,
     },
 }: IProps) {
-    const visibleReviewsCount = 1;
-    const totalCount = total.count - visibleReviewsCount;
+    const totalCount = total.count - VISIBLE_ITEMS_COUNT;
 
     return (
         <div className={b()}>
-            <div className={b('title')}>
-                Creative Reviews
-            </div>
             <div className={b('content')}>
-                {items.slice(0, visibleReviewsCount).map(review => (
-                    <DocumentItem
-                        key={review.id}
-                        document={review}
-                    />
-                ))}
+                <div className={b('title')}>
+                    Creative Reviews
+                </div>
+                <div className={b('items')}>
+                    {items.slice(0, VISIBLE_ITEMS_COUNT).map(review => (
+                        <div
+                            key={review.id}
+                            className={b('item')}
+                        >
+                            <DocumentItem document={review} />
+                        </div>
+                    ))}
+                </div>
             </div>
             {totalCount > 0 && (
                 <div className={b('actions')}>

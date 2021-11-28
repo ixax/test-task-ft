@@ -14,6 +14,8 @@ import DocumentItem from 'src/components/DocumentItem/DocumentItem';
 
 const b = b_.with('recent-documents-widget');
 
+const VISIBLE_ITEMS_COUNT = 3;
+
 interface IProps {
     documents: {
         items: IDocumentItem[];
@@ -29,23 +31,24 @@ export default function RecentDocumentsWidget({
         total,
     },
 }: IProps) {
-    const visibleDocumentsCount = 3;
-    const totalCount = total.count - visibleDocumentsCount;
+    const totalCount = total.count - VISIBLE_ITEMS_COUNT;
 
     return (
         <div className={b()}>
-            <div className={b('title')}>
-                Creative Reviews
-            </div>
-            <div className={b('items')}>
-                {items.slice(0, visibleDocumentsCount).map(document => (
-                    <div
-                        key={document.id}
-                        className={b('item')}
-                    >
-                        <DocumentItem document={document} />
-                    </div>
-                ))}
+            <div className={b('content')}>
+                <div className={b('title')}>
+                    Creative Reviews
+                </div>
+                <div className={b('items')}>
+                    {items.slice(0, VISIBLE_ITEMS_COUNT).map(item => (
+                        <div
+                            key={item.id}
+                            className={b('item')}
+                        >
+                            <DocumentItem document={item} />
+                        </div>
+                    ))}
+                </div>
             </div>
             {totalCount > 0 && (
                 <div className={b('actions')}>

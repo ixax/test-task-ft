@@ -2,6 +2,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    text-align: center;
 
     &:not([disabled]),
     &:not(&_disabled) {
@@ -22,7 +23,8 @@
     }
 
     &_variant_info {
-
+        background-color: #ededed;
+        color: #2d2d2d;
     }
 
     &_variant_expand {

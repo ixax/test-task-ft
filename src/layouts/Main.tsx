@@ -9,7 +9,7 @@ import CallWidget from 'src/components/Widgets/CallWidget/CallWidget';
 import GalleryWidget from 'src/components/Widgets/GalleryWidget/GalleryWidget';
 import ManagerWidget from 'src/components/Widgets/ManagerWidget/ManagerWidget';
 import RecentDocumentsWidget from 'src/components/Widgets/RecentDocumentsWidget/RecentDocumentsWidget';
-import ReviewWidget from 'src/components/Widgets/ReviewWidget/ReviewWidget';
+import ReviewsWidget from 'src/components/Widgets/ReviewsWidget/ReviewsWidget';
 import WelcomeWidget from 'src/components/Widgets/WelcomeWidget/WelcomeWidget';
 import {
     IDocumentItem,
@@ -88,7 +88,7 @@ export default function MainLayout({
                         gridArea: 'review',
                     }}
                 >
-                    <ReviewWidget reviews={reviews} />
+                    <ReviewsWidget reviews={reviews} />
                 </div>
                 <div
                     className={b('widget-item', {theme: 'light'})}
