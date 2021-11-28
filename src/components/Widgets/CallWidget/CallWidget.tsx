@@ -1,5 +1,9 @@
 import './CallWidget.scss';
 
+import {
+    IEvent,
+} from 'src/index.types';
+
 import * as b_ from 'b_';
 import React from 'react';
 
@@ -11,23 +15,21 @@ const b = b_.with('call-widget');
 
 const VISIBLE_ITEMS_COUNT = 1;
 
-export default function CallWidget() {
-    const {
-        events: {
-            items,
-            total,
-        },
-    } = {
-        events: {
-            items: [{
-                id: '1',
-                startAt: 'In 43 min',
-            }],
-            total: {
-                count: 8,
-            },
-        },
+interface IProps {
+    events: {
+        items: IEvent[];
+        total: {
+            count: number;
+        };
     };
+}
+
+export default function CallWidget({
+    events: {
+        items,
+        total,
+    },
+}: IProps) {
     const totalCount = total.count - VISIBLE_ITEMS_COUNT;
 
     return (

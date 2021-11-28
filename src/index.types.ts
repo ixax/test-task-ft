@@ -35,3 +35,8 @@ export interface IDocumentItem {
     updatedAt: string; // Should be Date, but idc, that's just test case
     status: IStatus;
 }
+
+export interface IEvent {
+    id: string;
+    startAt: string; // Should be Date, but idc, that's just test case
+}

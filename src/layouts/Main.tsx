@@ -13,6 +13,7 @@ import ReviewsWidget from 'src/components/Widgets/ReviewsWidget/ReviewsWidget';
 import WelcomeWidget from 'src/components/Widgets/WelcomeWidget/WelcomeWidget';
 import {
     IDocumentItem,
+    IEvent,
     IUser,
     IWorkspace,
 } from 'src/index.types';
@@ -22,6 +23,12 @@ const b = b_.with('main-layout');
 interface IProps {
     documents: {
         items: IDocumentItem[];
+        total: {
+            count: number;
+        };
+    };
+    events: {
+        items: IEvent[];
         total: {
             count: number;
         };
@@ -38,14 +45,20 @@ interface IProps {
         };
     };
     user: IUser;
+    welcome: {
+        title: string;
+        text: JSX.Element;
+    };
     workspaces: IWorkspace[];
 }
 
 export default function MainLayout({
     documents,
+    events,
     gallery,
     reviews,
     user,
+    welcome,
     workspaces,
 }: IProps) {
     return (
@@ -72,7 +85,7 @@ export default function MainLayout({
                         gridArea: 'welcome',
                     }}
                 >
-                    <WelcomeWidget />
+                    <WelcomeWidget welcome={welcome} />
                 </div>
                 <div
                     className={b('widget-item', {theme: 'dark'})}
@@ -96,7 +109,7 @@ export default function MainLayout({
                         gridArea: 'call',
                     }}
                 >
-                    <CallWidget />
+                    <CallWidget events={events} />
                 </div>
                 <div
                     className={b('widget-item', {theme: 'light'})}

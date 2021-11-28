@@ -5,14 +5,25 @@ import React from 'react';
 
 const b = b_.with('welcome-widget');
 
-export default function WelcomeWidget() {
+interface IProps {
+    welcome: {
+        title: string;
+        text: any;
+    };
+}
+
+export default function WelcomeWidget({
+    welcome: {
+        title,
+        text,
+    },
+}: IProps) {
     return (
         <div className={b()}>
-            <h3>Happy Tuesday, Lily.</h3>
-            <p>
-                Lorem ipsum dolor sit amet, dicam diceret molestiae in his.
-                Eum putent possit ea. Ex mei <strong>discere</strong> feugiat, pri ex nisl delicata sapientem, quod bonorum appetere te per. Offendit dissentiunt at nam, <strong>ea has</strong> illud dolore deseruisse.
-            </p>
+            <h3>{title}</h3>
+            <div className={b('content')}>
+                {text}
+            </div>
         </div>
     );
 }

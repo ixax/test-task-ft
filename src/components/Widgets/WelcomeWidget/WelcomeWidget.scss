@@ -11,13 +11,15 @@
         margin-bottom: 20px;
     }
 
-    p {
-        color: #c5c5c5;
-        white-space: pre-wrap;
+    &__content {
+        p {
+            color: #c5c5c5;
+            white-space: pre-wrap;
 
-        strong {
-            color: #fff;
-            font-weight: 400;
+            strong {
+                color: #fff;
+                font-weight: 400;
+            }
         }
     }
 }

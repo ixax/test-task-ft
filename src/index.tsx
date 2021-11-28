@@ -1,7 +1,7 @@
 import './index.scss';
 import {
     DocumentItemStatusCategories,
-    IDocumentItem,
+    IDocumentItem, IEvent,
     IUser,
     IWorkspace,
 } from './index.types';
@@ -14,11 +14,6 @@ import {
 import MainLayout from 'src/layouts/Main';
 
 const DATA = {
-    gallery: {
-        image: {
-            url: './behind-scenes-cover.png',
-        },
-    },
     documents: {
         items: [
             {
@@ -62,6 +57,20 @@ const DATA = {
             count: 10,
         },
     },
+    events: {
+        items: [{
+            id: '1',
+            startAt: 'In 43 min',
+        }] as IEvent[],
+        total: {
+            count: 8,
+        },
+    },
+    gallery: {
+        image: {
+            url: './behind-scenes-cover.png',
+        },
+    },
     reviews: {
         items: [{
             id: '1',
@@ -84,6 +93,15 @@ const DATA = {
             url: './avatar.png',
         },
     } as IUser,
+    welcome: {
+        title: 'Happy Tuesday, Lily.',
+        text: (
+            <p>
+                Lorem ipsum dolor sit amet, dicam diceret molestiae in his.
+                Eum putent possit ea. Ex mei <strong>discere</strong> feugiat, pri ex nisl delicata sapientem, quod bonorum appetere te per. Offendit dissentiunt at nam, <strong>ea has</strong> illud dolore deseruisse.
+            </p>
+        ),
+    },
     workspaces: [
         {
             id: '0',
