@@ -1,6 +1,9 @@
-.toolbar {
-    --bottomGap: 12px;
+:root {
+    --verticalSpace: 29px;
+    --toolbarItemsSpaceBetween: 21px;
+}
 
+.toolbar {
     width: 66px;
     background-color: #fff;
     display: flex;
@@ -8,7 +11,7 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    padding: 29px 0 var(--bottomGap);
+    padding: var(--verticalSpace) 0;
 
     &__workspaces {
         width: 100%;
@@ -18,17 +21,26 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        flex-direction: row;
+        align-items: center;
+        flex-direction: column;
     }
 
-    &__profile {
+    &__menu-item {
         cursor: pointer;
-    }
+        margin-bottom: var(--toolbarItemsSpaceBetween);
 
-    &__search-button {
-        position: fixed;
-        bottom: var(--bottomGap);
-        right: 12px;
-        cursor: pointer;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media all and (min-width: 1500px) {
+    .toolbar {
+        &__search-button {
+            position: fixed;
+            bottom: var(--verticalSpace);
+            right: 12px;
+        }
     }
 }

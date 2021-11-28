@@ -1,3 +1,8 @@
+:root {
+    --widgetHPadding: 15px;
+    --widgetVPadding: 15px;
+}
+
 .main-layout {
     display: flex;
     max-width: 1600px;
@@ -12,7 +17,7 @@
     &__widgets {
         margin-left: 66px;
         width: 100%;
-        padding: 63px 66px;
+        padding: var(--verticalSpace) 66px;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: repeat(4, 170px);
@@ -39,12 +44,8 @@
 @media all and (max-width: 1500px) {
     .main-layout {
         &__widgets {
-            padding: 40px 20px;
+            padding-right: 20px;
+            padding-left: 20px;
         }
     }
-}
-
-:root {
-    --widgetHPadding: 15px;
-    --widgetVPadding: 15px;
 }

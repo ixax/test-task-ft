@@ -102,6 +102,7 @@ export default function MainLayout({
                     className={b('widget-item', {theme: 'dark'})}
                     style={{
                         gridArea: 'welcome',
+                        width: projectsExpanded ? 0 : 'auto',
                     }}
                 >
                     <WelcomeWidget
@@ -112,6 +113,7 @@ export default function MainLayout({
                     className={b('widget-item', {theme: 'dark'})}
                     style={{
                         gridArea: 'projects',
+                        width: projectsExpanded ? '100%' : 'auto',
                     }}
                 >
                     <ProjectsWidget

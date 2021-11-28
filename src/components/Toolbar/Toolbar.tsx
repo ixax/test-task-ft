@@ -29,14 +29,14 @@ export default function Toolbar({
                 <Workspaces workspaces={workspaces} />
             </div>
             <div className={b('menu')}>
-                <div className={b('profile')}>
+                <div className={b('menu-item', {type: 'search-button'})}>
+                    <SearchButton />
+                </div>
+                <div className={b('menu-item', {type: 'profile'})}>
                     <Avatar
                         avatar={user.avatar}
                         size={'s'}
                     />
-                </div>
-                <div className={b('search-button')}>
-                    <SearchButton />
                 </div>
             </div>
         </div>
