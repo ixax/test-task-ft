@@ -1,5 +1,5 @@
 .reviews-widget {
-    padding: 15px 23px;
+    padding: var(--widgetVPadding) var(--widgetHPadding);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

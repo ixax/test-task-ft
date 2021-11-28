@@ -1,8 +1,9 @@
 .welcome-widget {
-    padding: 60px 33px;
+    padding: calc(var(--widgetVPadding) * 2) calc(var(--widgetHPadding) + 10px);
     font-size: 30px;
     line-height: 1.4;
     font-weight: 300;
+    height: 100%;
 
     &__title {
         font-weight: bold;

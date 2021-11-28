@@ -22,7 +22,7 @@
     }
 
     &__meta {
-        padding: 40px 23px;
+        padding: 40px var(--widgetHPadding);
         display: flex;
         flex-direction: column;
         justify-content: flex-end;

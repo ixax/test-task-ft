@@ -12,17 +12,17 @@
     &_expanded_no &__toggle-button {
         width: 40px;
         height: 8px;
-        top: 19px;
-        left: 23px;
         background-image: url('i/expand.svg');
+        left: calc(var(--widgetHPadding) + 10px);
+        top: calc(var(--widgetHPadding) + 10px);
     }
 
     &_expanded_yes &__toggle-button {
         width: 20px;
         height: 20px;
-        top: 30px;
-        right: 30px;
         background-image: url('i/collapse.svg');
+        right: calc(var(--widgetHPadding) + 10px);
+        top: calc(var(--widgetHPadding) + 10px);
     }
 
     &__title {
