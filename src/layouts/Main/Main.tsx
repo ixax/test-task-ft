@@ -14,13 +14,13 @@ import React, {
 } from 'react';
 
 import Toolbar from 'src/components/Toolbar/Toolbar';
-import ProjectsWidget from 'src/components/Widgets/ProjectsWidget/ProjectsWidget';
-import CallWidget from 'src/components/Widgets/CallWidget/CallWidget';
-import GalleryWidget from 'src/components/Widgets/GalleryWidget/GalleryWidget';
-import ManagerWidget from 'src/components/Widgets/ManagerWidget/ManagerWidget';
-import RecentDocumentsWidget from 'src/components/Widgets/RecentDocumentsWidget/RecentDocumentsWidget';
-import ReviewsWidget from 'src/components/Widgets/ReviewsWidget/ReviewsWidget';
-import WelcomeWidget from 'src/components/Widgets/WelcomeWidget/WelcomeWidget';
+import ProjectsWidget from 'src/layouts/Main/Widgets/ProjectsWidget/ProjectsWidget';
+import CallWidget from 'src/layouts/Main/Widgets/CallWidget/CallWidget';
+import GalleryWidget from 'src/layouts/Main/Widgets/GalleryWidget/GalleryWidget';
+import ManagerWidget from 'src/layouts/Main/Widgets/ManagerWidget/ManagerWidget';
+import RecentDocumentsWidget from 'src/layouts/Main/Widgets/RecentDocumentsWidget/RecentDocumentsWidget';
+import ReviewsWidget from 'src/layouts/Main/Widgets/ReviewsWidget/ReviewsWidget';
+import WelcomeWidget from 'src/layouts/Main/Widgets/WelcomeWidget/WelcomeWidget';
 
 const b = b_.with('main-layout');
 

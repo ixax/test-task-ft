@@ -7,7 +7,7 @@ import {
 } from 'react-dom';
 
 import isTouch from 'src/libs/touch';
-import MainLayout from 'src/layouts/Main';
+import MainLayout from 'src/layouts/Main/Main';
 
 document.addEventListener('DOMContentLoaded', async () => {
     const mount = document.getElementById('mount');
