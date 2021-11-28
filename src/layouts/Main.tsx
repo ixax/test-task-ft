@@ -1,22 +1,26 @@
 import './Main.scss';
 
+import {
+    IDocumentItem,
+    IEvent,
+    IProject,
+    IUser,
+    IWorkspace,
+} from 'src/index.types';
+
 import * as b_ from 'b_';
-import React from 'react';
+import React, {
+    useState,
+} from 'react';
 
 import Toolbar from 'src/components/Toolbar/Toolbar';
-import BurnDownWidget from 'src/components/Widgets/BurndownWidget/BurnDownWidget';
+import ProjectsWidget from 'src/components/Widgets/ProjectsWidget/ProjectsWidget';
 import CallWidget from 'src/components/Widgets/CallWidget/CallWidget';
 import GalleryWidget from 'src/components/Widgets/GalleryWidget/GalleryWidget';
 import ManagerWidget from 'src/components/Widgets/ManagerWidget/ManagerWidget';
 import RecentDocumentsWidget from 'src/components/Widgets/RecentDocumentsWidget/RecentDocumentsWidget';
 import ReviewsWidget from 'src/components/Widgets/ReviewsWidget/ReviewsWidget';
 import WelcomeWidget from 'src/components/Widgets/WelcomeWidget/WelcomeWidget';
-import {
-    IDocumentItem,
-    IEvent,
-    IUser,
-    IWorkspace,
-} from 'src/index.types';
 
 const b = b_.with('main-layout');
 
@@ -39,6 +43,12 @@ interface IProps {
         };
     };
     manager: IUser;
+    projects: {
+        pendingReviews: {
+            count: number;
+        },
+        projects: IProject[];
+    };
     reviews: {
         items: IDocumentItem[];
         total: {
@@ -58,11 +68,17 @@ export default function MainLayout({
     events,
     gallery,
     manager,
+    projects,
     reviews,
     user,
     welcome,
     workspaces,
 }: IProps) {
+    const [
+        projectsExpanded,
+        toggleProjectExpanded,
+    ] = useState(false);
+
     return (
         <div className={b()}>
             <div className={b('toolbar')}>
@@ -74,11 +90,12 @@ export default function MainLayout({
             <div
                 className={b('widgets')}
                 style={{
-                    gridTemplateAreas: `
-                    'welcome welcome welcome welcome burn-down burn-down'
-                    'welcome welcome welcome welcome burn-down burn-down'
-                    'review review recent-documents recent-documents gallery gallery'
-                    'call manager recent-documents recent-documents gallery gallery'`,
+                    gridTemplateAreas: [
+                        `'welcome welcome welcome welcome projects projects'`,
+                        `'welcome welcome welcome welcome projects projects'`,
+                        `'review review recent-documents recent-documents gallery gallery'`,
+                        `'call manager recent-documents recent-documents gallery gallery'`,
+                    ].filter(Boolean).join(' '),
                 }}
             >
                 <div
@@ -94,10 +111,15 @@ export default function MainLayout({
                 <div
                     className={b('widget-item', {theme: 'dark'})}
                     style={{
-                        gridArea: 'burn-down',
+                        gridArea: 'projects',
                     }}
                 >
-                    <BurnDownWidget />
+                    <ProjectsWidget
+                        expanded={projectsExpanded}
+                        toggleExpanded={toggleProjectExpanded}
+                        projects={projects.projects}
+                        pendingReviews={projects.pendingReviews}
+                    />
                 </div>
                 <div
                     className={b('widget-item', {theme: 'light'})}

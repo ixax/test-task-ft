@@ -1,12 +1,10 @@
 .welcome-widget {
-    padding: 60px 60px 0 60px;
-    color: #fff;
+    padding: 60px 33px;
     font-size: 30px;
     line-height: 1.4;
-    font-style: normal;
     font-weight: 300;
 
-    h3 {
+    &__title {
         font-weight: bold;
         margin-bottom: 20px;
     }

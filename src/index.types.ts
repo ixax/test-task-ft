@@ -50,3 +50,11 @@ export interface IEvent {
     id: string;
     startAt: string; // Should be Date, but idc, that's just test case
 }
+
+export interface IProject {
+    id: string;
+    name: string;
+    percentage: number;
+    daysLeft: number;
+    color: string;
+}

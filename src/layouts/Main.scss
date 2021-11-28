@@ -16,8 +16,9 @@
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: repeat(4, 170px);
-        gap: 21px 21px;
+        gap: 20px 20px;
         grid-auto-flow: row;
+        transition: 2s;
     }
 
     &__widget-item {
@@ -36,7 +37,7 @@
     }
 }
 
-@media all and (max-width: 1400px) {
+@media all and (max-width: 1500px) {
     .main-layout {
         &__widgets {
             padding: 40px 20px;

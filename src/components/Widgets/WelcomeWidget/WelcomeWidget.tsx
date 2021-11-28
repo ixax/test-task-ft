@@ -20,7 +20,9 @@ export default function WelcomeWidget({
 }: IProps) {
     return (
         <div className={b()}>
-            <h3>{title}</h3>
+            <h3 className={b('title')}>
+                {title}
+            </h3>
             <div className={b('content')}>
                 {text}
             </div>

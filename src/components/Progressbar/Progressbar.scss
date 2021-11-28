@@ -1,0 +1,16 @@
+.progressbar {
+    position: relative;
+
+    &__circle {
+        fill: none;
+        stroke-linecap: round;
+    }
+
+    &__circle_type_bg {
+        stroke: rgba(#fff, .1);
+    }
+
+    &__circle_type_line {
+        transition: all .9s ease-in-out;
+    }
+}

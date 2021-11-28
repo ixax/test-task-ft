@@ -3,14 +3,14 @@ import './Toolbar.scss';
 import {
     IUser,
     IWorkspace,
-} from "../../index.types";
+} from 'src/index.types';
 
 import * as b_ from 'b_';
 import React from 'react';
 
-import Avatar from "src/components/Avatar/Avatar";
-import SearchButton from "src/components/SearchButton/SearchButton";
-import Workspaces from "src/components/Workspaces/Workspaces";
+import Avatar from 'src/components/Avatar/Avatar';
+import SearchButton from 'src/components/SearchButton/SearchButton';
+import Workspaces from 'src/components/Workspaces/Workspaces';
 
 const b = b_.with('toolbar');
 

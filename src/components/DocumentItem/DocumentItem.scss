@@ -8,13 +8,9 @@
     align-items: center;
     cursor: pointer;
 
-    &:hover {
-        box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.1);
-    }
-
     &__pic {
         margin-right: 14px;
-        max-width: 60px;
+        min-width: 46px;
         display: flex;
         justify-content: flex-end;
     }
@@ -37,5 +33,13 @@
         color: #7d7d7d;
         font-size: 11px;
         line-height: 13px;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .document-item {
+        &:hover {
+            box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.1);
+        }
     }
 }

@@ -3,6 +3,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     text-align: center;
+    font-weight: 500;
 
     &:not([disabled]),
     &:not(&_disabled) {
