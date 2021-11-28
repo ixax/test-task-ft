@@ -1,9 +1,11 @@
 import './index.scss';
 import {
     DocumentItemStatusCategories,
-    IDocumentItem, IEvent,
+    IDocumentItem,
+    IEvent,
     IUser,
     IWorkspace,
+    UserContactTypes,
 } from './index.types';
 
 import React from 'react';
@@ -71,6 +73,22 @@ const DATA = {
             url: './behind-scenes-cover.png',
         },
     },
+    manager: {
+        avatar: {
+            url: './avatar2.png',
+        },
+        name: 'Sarah Smith',
+        contacts: [
+            {
+                type: UserContactTypes.Slack,
+                value: 'U100500',
+            },
+            {
+                type: UserContactTypes.Email,
+                value: 'user@example.com',
+            },
+        ],
+    } as IUser,
     reviews: {
         items: [{
             id: '1',
@@ -92,7 +110,7 @@ const DATA = {
         avatar: {
             url: './avatar.png',
         },
-    } as IUser,
+    } as Partial<IUser>,
     welcome: {
         title: 'Happy Tuesday, Lily.',
         text: (

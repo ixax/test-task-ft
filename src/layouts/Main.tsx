@@ -38,13 +38,14 @@ interface IProps {
             url: string;
         };
     };
+    manager: IUser;
     reviews: {
         items: IDocumentItem[];
         total: {
             count: number;
         };
     };
-    user: IUser;
+    user: Partial<IUser>;
     welcome: {
         title: string;
         text: JSX.Element;
@@ -56,6 +57,7 @@ export default function MainLayout({
     documents,
     events,
     gallery,
+    manager,
     reviews,
     user,
     welcome,
@@ -85,7 +87,9 @@ export default function MainLayout({
                         gridArea: 'welcome',
                     }}
                 >
-                    <WelcomeWidget welcome={welcome} />
+                    <WelcomeWidget
+                        welcome={welcome}
+                    />
                 </div>
                 <div
                     className={b('widget-item', {theme: 'dark'})}
@@ -101,7 +105,9 @@ export default function MainLayout({
                         gridArea: 'review',
                     }}
                 >
-                    <ReviewsWidget reviews={reviews} />
+                    <ReviewsWidget
+                        reviews={reviews}
+                    />
                 </div>
                 <div
                     className={b('widget-item', {theme: 'light'})}
@@ -109,7 +115,9 @@ export default function MainLayout({
                         gridArea: 'call',
                     }}
                 >
-                    <CallWidget events={events} />
+                    <CallWidget
+                        events={events}
+                    />
                 </div>
                 <div
                     className={b('widget-item', {theme: 'light'})}
@@ -117,7 +125,9 @@ export default function MainLayout({
                         gridArea: 'manager',
                     }}
                 >
-                    <ManagerWidget />
+                    <ManagerWidget
+                        user={manager}
+                    />
                 </div>
                 <div
                     className={b('widget-item', {theme: 'light'})}
@@ -125,7 +135,9 @@ export default function MainLayout({
                         gridArea: 'recent-documents',
                     }}
                 >
-                    <RecentDocumentsWidget documents={documents} />
+                    <RecentDocumentsWidget
+                        documents={documents}
+                    />
                 </div>
                 <div
                     className={b('widget-item', {theme: 'dark'})}
@@ -133,7 +145,9 @@ export default function MainLayout({
                         gridArea: 'gallery',
                     }}
                 >
-                    <GalleryWidget image={gallery.image} />
+                    <GalleryWidget
+                        image={gallery.image}
+                    />
                 </div>
             </div>
         </div>

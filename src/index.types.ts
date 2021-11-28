@@ -1,7 +1,17 @@
+export enum UserContactTypes {
+    Slack,
+    Email,
+}
+
 export interface IUser {
     avatar: {
         url: string;
     };
+    name: string;
+    contacts: Array<{
+        type: UserContactTypes;
+        value: string;
+    }>;
 }
 
 export interface IWorkspace {

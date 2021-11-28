@@ -15,7 +15,7 @@ import Workspaces from "src/components/Workspaces/Workspaces";
 const b = b_.with('toolbar');
 
 interface IProps {
-    user: IUser;
+    user: Partial<IUser>;
     workspaces: IWorkspace[];
 }
 
