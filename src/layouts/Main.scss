@@ -21,7 +21,7 @@
         position: relative;
 
         &_theme_dark {
-            background: #000;
+            background: linear-gradient(180deg, rgba(#1f1f24, .9) 0, rgba(#332f4d, .9) 100%) no-repeat;
         }
 
         &_theme_light {
