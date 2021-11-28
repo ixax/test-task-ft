@@ -1,0 +1,31 @@
+.main-layout {
+    display: flex;
+    height: 100%;
+    max-width: 1600px;
+
+    &__toolbar {}
+
+    &__widgets {
+        width: 100%;
+        padding: 63px 66px;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(4, 170px);
+        gap: 21px 21px;
+        grid-auto-flow: row;
+    }
+
+    &__widget-item {
+        border-radius: 24px;
+        overflow: hidden;
+        position: relative;
+
+        &_theme_dark {
+            background: #000;
+        }
+
+        &_theme_light {
+            background: #ccc;
+        }
+    }
+}

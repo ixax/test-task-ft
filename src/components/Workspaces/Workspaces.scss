@@ -1,0 +1,53 @@
+.workspaces {
+    display: flex;
+    flex-direction: column;
+
+    &__item {
+        display: flex;
+        width: 100%;
+        position: relative;
+        margin-bottom: 21px;
+        justify-content: center;
+        flex-direction: row;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__item-inner {
+        width: 42px;
+        height: 42px;
+        border-radius: 13.6px;
+        background-color: #000;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+        position: relative;
+    }
+
+    &__item_active {
+        &:before {
+            position: absolute;
+            content: '';
+            width: 4px;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            background-color: #4d61f6;
+            border-radius: 0 5px 5px 0;
+            border: 1px solid #000;
+        }
+    }
+
+    &__item-notification-mark {
+        position: absolute;
+        right: -1px;
+        top: 1px;
+        width: 8px;
+        height: 8px;
+        background-color: #fe5b81;
+        border-radius: 50%;
+    }
+}

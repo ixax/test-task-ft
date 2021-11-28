@@ -1,0 +1,32 @@
+.button {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &:not([disabled]),
+    &:not(&_disabled) {
+        cursor: pointer;
+    }
+
+    &_size_s {
+        height: 26px;
+        border-radius: 13px;
+        line-height: 12px;
+        font-size: 10px;
+        padding: 6px 10px;
+    }
+
+    &_variant_action {
+        background-color: #4d61f6;
+        color: #fff;
+    }
+
+    &_variant_info {
+
+    }
+
+    &_variant_expand {
+        background-color: #fff;
+        box-shadow: 0 0 0 1px #ededed;
+    }
+}

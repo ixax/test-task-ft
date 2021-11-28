@@ -1,0 +1,25 @@
+.status {
+    padding: 6px 15px;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+    height: 25px;
+    border-radius: 12.5px;
+    text-transform: capitalize;
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &_category_draft {
+        background-color: #c5c5c5;
+    }
+
+    &_category_review {
+        background-color: #fe5b81;
+    }
+
+    &_category_done {
+        background-color: #32DBBB;
+    }
+}

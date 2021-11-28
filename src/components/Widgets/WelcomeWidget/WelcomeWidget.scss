@@ -1,0 +1,23 @@
+.welcome-widget {
+    padding: 60px 60px 0 60px;
+    color: #fff;
+    font-size: 30px;
+    line-height: 1.4;
+    font-style: normal;
+    font-weight: 300;
+
+    h3 {
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    p {
+        color: #c5c5c5;
+        white-space: pre-wrap;
+
+        strong {
+            color: #fff;
+            font-weight: 400;
+        }
+    }
+}
