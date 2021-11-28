@@ -1,11 +1,16 @@
 .main-layout {
     display: flex;
-    height: 100%;
     max-width: 1600px;
 
-    &__toolbar {}
+    &__toolbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+    }
 
     &__widgets {
+        margin-left: 66px;
         width: 100%;
         padding: 63px 66px;
         display: grid;
@@ -21,11 +26,20 @@
         position: relative;
 
         &_theme_dark {
+            color: #fff;
             background: linear-gradient(180deg, rgba(#1f1f24, .9) 0, rgba(#332f4d, .9) 100%) no-repeat;
         }
 
         &_theme_light {
             background: #f3f3f3;
+        }
+    }
+}
+
+@media all and (max-width: 1400px) {
+    .main-layout {
+        &__widgets {
+            padding: 40px 20px;
         }
     }
 }
