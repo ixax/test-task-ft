@@ -29,7 +29,7 @@ export default function Toolbar({
                 <Workspaces workspaces={workspaces} />
             </div>
             <div className={b('menu')}>
-                <div className={b('menu-item', {type: 'search-button'})}>
+                <div className={b('menu-item', {type: 'search'})}>
                     <SearchButton />
                 </div>
                 <div className={b('menu-item', {type: 'profile'})}>

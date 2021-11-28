@@ -37,10 +37,11 @@
 
 @media all and (min-width: 1500px) {
     .toolbar {
-        &__search-button {
+        &__menu-item_type_search {
             position: fixed;
             bottom: var(--verticalSpace);
             right: 12px;
+            margin-bottom: 0;
         }
     }
 }
