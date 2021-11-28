@@ -1,5 +1,6 @@
 .projects-widget {
     padding: 30px 65px;
+    height: 100%;
 
     &__toggle-button {
         background-size: cover;
@@ -40,21 +41,21 @@
         padding-left: 30px;
     }
 
-    &__items {
+    &__expanded-items {
         display: flex;
         justify-content: space-between;
     }
 
-    &__item {
+    &__expanded-item {
         text-align: center;
     }
 
-    &__item-stat,
-    &__item-name {
+    &__expanded-item-stat,
+    &__expanded-item-name {
         color: #fff;
     }
 
-    &__item-stat {
+    &__expanded-item-stat {
         position: absolute;
         top: 0;
         right: 0;
@@ -65,30 +66,70 @@
         justify-content: center;
     }
 
-    &__item-stat-days {
+    &__expanded-item-stat-days {
         font-weight: bold;
         font-size: 60px;
         line-height: 73px;
     }
 
-    &__item-stat-left {
+    &__expanded-item-stat-left {
         font-weight: bold;
         font-size: 16px;
         line-height: 20px;
         margin-bottom: 2px;
     }
 
-    &__item-stat-comments {
+    &__expanded-item-stat-comments {
         color: #c5c5c5;
     }
 
-    &__item-progressbar {
+    &__expanded-item-progressbar {
         margin-bottom: 15px;
     }
 
-    &__item-name {
+    &__expanded-item-name {
         font-size: 16px;
         line-height: 43px;
         font-weight: bold;
+    }
+
+    &__collapsed-items {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        position: relative;
+    }
+
+    &__collapsed-items-inner {
+        position: relative;
+    }
+
+    &__collapsed-item {
+        position: absolute;
+    }
+
+    &__percentage {
+        color: #fff;
+        position: absolute;
+        line-height: 18px;
+        font-weight: bold;
+
+        &_position_top {
+            top: -30px;
+        }
+
+        &_position_right {
+            right: 20px;
+            top: calc(50% - 9px);
+        }
+
+        &_position_bottom {
+            bottom: -30px;
+        }
+
+        &_position_left {
+            left: 20px;
+            top: calc(50% - 9px);
+        }
     }
 }

@@ -12,16 +12,16 @@ interface IProps extends React.HTMLAttributes<HTMLButtonElement> {
     color: string;
     percentage: number;
     size: number;
+    strokeWidth: number;
 }
 
 export default function Progressbar({
     color,
     percentage,
     size,
+    strokeWidth,
     children,
 }: IProps) {
-    const strokeWidth = 6;
-
     const [
         progress,
         setProgress,
