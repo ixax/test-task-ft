@@ -163,7 +163,7 @@ export default {
                 url: './workspaces/wk-plus.png',
             },
             notifications: {
-                count: 1,
+                count: 0,
             },
             isActive: true,
         },
@@ -173,7 +173,7 @@ export default {
                 url: './workspaces/asd.png',
             },
             notifications: {
-                count: 0,
+                count: 1,
             },
         },
     ] as IWorkspace[],

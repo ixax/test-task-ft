@@ -9,8 +9,6 @@ import * as b_ from 'b_';
 import React from 'react';
 
 import Avatar from 'src/components/Avatar/Avatar';
-import SearchButton from 'src/components/SearchButton/SearchButton';
-import Workspaces from 'src/components/Workspaces/Workspaces';
 
 const b = b_.with('toolbar');
 
@@ -26,12 +24,29 @@ export default function Toolbar({
     return (
         <div className={b()}>
             <div className={b('workspaces')}>
-                <Workspaces workspaces={workspaces} />
+                {workspaces.map(workspace => (
+                    <div
+                        key={workspace.id}
+                        className={b('workspace-item', {
+                            active: workspace.isActive,
+                            'has-notifications': workspace.notifications?.count > 0,
+                        })}
+                    >
+                        <div className={b('workspace-item-inner')}
+                             style={{
+                                 backgroundImage: `url(${workspace.logo.url})`,
+                             }}
+                        />
+                    </div>
+                ))}
+                <div className={b('workspace-item', {
+                    action: 'add',
+                })}>
+                    <div className={b('workspace-item-inner')} />
+                </div>
             </div>
             <div className={b('menu')}>
-                <div className={b('menu-item', {type: 'search'})}>
-                    <SearchButton />
-                </div>
+                <div className={b('menu-item', {type: 'search'})} />
                 <div className={b('menu-item', {type: 'profile'})}>
                     <Avatar
                         avatar={user.avatar}

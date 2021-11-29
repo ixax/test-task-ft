@@ -23,7 +23,7 @@
         height: 20px;
         background-image: url('i/collapse.svg');
         right: calc(var(--widgetHPadding) + 10px);
-        top: calc(var(--widgetHPadding) + 10px);
+        top: 31px;
     }
 
     &__title {
@@ -36,7 +36,7 @@
     }
 
     &__title-inner {
-        font-weight: 500;
+        font-weight: bold;
         background: url('i/alert.png') 0 50% no-repeat;
         padding-left: 30px;
     }
@@ -44,6 +44,7 @@
     &__expanded-items {
         display: flex;
         justify-content: space-between;
+        flex-direction: row;
     }
 
     &__expanded-item {
@@ -100,8 +101,13 @@
         position: relative;
     }
 
+    &__collapsed-items-wrapper,
     &__collapsed-items-inner {
         position: relative;
+    }
+
+    &__collapsed-items-inner {
+        height: 100%;
     }
 
     &__collapsed-item {
@@ -113,23 +119,68 @@
         position: absolute;
         line-height: 18px;
         font-weight: bold;
+        text-align: center;
 
         &_position_top {
             top: -30px;
+            left: 0;
+            right: 0;
         }
 
         &_position_right {
-            right: 20px;
+            right: -40px;
             top: calc(50% - 9px);
         }
 
         &_position_bottom {
             bottom: -30px;
+            left: 0;
+            right: 0;
         }
 
         &_position_left {
-            left: 20px;
+            left: -40px;
             top: calc(50% - 9px);
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .projects-widget {
+        padding-right: 30px;
+        padding-left: 30px;
+
+        &__expanded-items {
+            overflow-x: auto;
+        }
+
+        &__expanded-item {
+            margin-right: 30px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .projects-widget {
+        padding-right: 10px;
+        padding-left: 10px;
+
+        &__expanded-items {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__expanded-item {
+            margin-bottom: 40px;
+            margin-right: 0;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
     }
 }

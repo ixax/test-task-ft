@@ -2,7 +2,7 @@
     padding: calc(var(--widgetVPadding) * 2) calc(var(--widgetHPadding) + 10px);
     font-size: 30px;
     line-height: 1.4;
-    font-weight: 300;
+    font-weight: normal;
     height: 100%;
 
     &__title {
@@ -17,8 +17,13 @@
 
             strong {
                 color: #fff;
-                font-weight: 400;
             }
         }
+    }
+}
+
+@media (max-width: 800px) {
+    .welcome-widget {
+        font-size: 20px;
     }
 }

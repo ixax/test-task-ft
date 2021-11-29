@@ -1,21 +1,25 @@
 :root {
     --widgetHPadding: 15px;
     --widgetVPadding: 15px;
+    --toolbarSize: 66px;
 }
 
 .main-layout {
     display: flex;
     max-width: 1600px;
+    flex-direction: row;
 
     &__toolbar {
         position: fixed;
         top: 0;
         left: 0;
         bottom: 0;
+        width: var(--toolbarSize);
+        z-index: 100;
     }
 
     &__widgets {
-        margin-left: 66px;
+        margin-left: var(--toolbarSize);
         width: 100%;
         padding: var(--verticalSpace) 66px;
         display: grid;
@@ -41,11 +45,32 @@
     }
 }
 
-@media all and (max-width: 1500px) {
+@media (max-width: 1500px) {
     .main-layout {
         &__widgets {
             padding-right: 20px;
             padding-left: 20px;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .main-layout {
+        flex-direction: column;
+
+        &__toolbar {
+            width: 100%;
+            height: var(--toolbarSize);
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        &__widgets {
+            display: flex;
+            flex-direction: column;
+            margin-left: 0;
+            margin-top: var(--toolbarSize);
         }
     }
 }

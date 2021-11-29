@@ -52,7 +52,7 @@ export default function CallWidget({
                                     variant={ButtonVariants.Action}
                                     size={'s'}
                                 >
-                                    Join Zoom
+                                    Zoom In
                                 </Button>
                                 <Button
                                     variant={ButtonVariants.Info}

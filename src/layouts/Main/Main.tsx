@@ -91,29 +91,33 @@ export default function MainLayout({
                 className={b('widgets')}
                 style={{
                     gridTemplateAreas: [
-                        `'welcome welcome welcome welcome projects projects'`,
-                        `'welcome welcome welcome welcome projects projects'`,
+                        projectsExpanded
+                            ? `'projects projects projects projects projects projects'`
+                            : `'welcome welcome welcome welcome projects projects'`,
+                        projectsExpanded
+                            ? `'projects projects projects projects projects projects'`
+                            : `'welcome welcome welcome welcome projects projects'`,
                         `'review review recent-documents recent-documents gallery gallery'`,
                         `'call manager recent-documents recent-documents gallery gallery'`,
                     ].filter(Boolean).join(' '),
                 }}
             >
-                <div
-                    className={b('widget-item', {theme: 'dark'})}
-                    style={{
-                        gridArea: 'welcome',
-                        width: projectsExpanded ? 0 : 'auto',
-                    }}
-                >
-                    <WelcomeWidget
-                        welcome={welcome}
-                    />
-                </div>
+                {!projectsExpanded && (
+                    <div
+                        className={b('widget-item', {theme: 'dark'})}
+                        style={{
+                            gridArea: 'welcome',
+                        }}
+                    >
+                        <WelcomeWidget
+                            welcome={welcome}
+                        />
+                    </div>
+                )}
                 <div
                     className={b('widget-item', {theme: 'dark'})}
                     style={{
                         gridArea: 'projects',
-                        width: projectsExpanded ? '100%' : 'auto',
                     }}
                 >
                     <ProjectsWidget

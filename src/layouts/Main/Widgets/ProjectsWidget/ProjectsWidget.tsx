@@ -76,17 +76,19 @@ export default function ProjectsWidget({
             )}
             {!expanded && (
                 <div className={b('collapsed-items')}>
-                    <div className={b('percentage', {position: 'top'})}>100%</div>
-                    <div className={b('percentage', {position: 'right'})}>25%</div>
-                    <div className={b('percentage', {position: 'bottom'})}>50%</div>
-                    <div className={b('percentage', {position: 'left'})}>75%</div>
                     <div
-                        className={b('collapsed-items-inner')}
+                        className={b('collapsed-items-wrapper')}
                         style={{
                             width: PROJECT_ITEM_SIZE,
                             height: PROJECT_ITEM_SIZE,
                         }}
                     >
+                        <div className={b('collapsed-items-inner')}>
+                            <div className={b('percentage', {position: 'top'})}>100%</div>
+                            <div className={b('percentage', {position: 'right'})}>25%</div>
+                            <div className={b('percentage', {position: 'bottom'})}>50%</div>
+                            <div className={b('percentage', {position: 'left'})}>75%</div>
+                        </div>
                         {projects.map((project, i) => {
                             const index = projects.length - i;
                             const relativeOffset = index * PROJECT_STROKE_WIDTH * 2;

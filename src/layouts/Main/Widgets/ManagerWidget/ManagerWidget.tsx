@@ -32,31 +32,33 @@ export default function ManagerWidget({
             <div className={b('title')}>
                 Account Manager
             </div>
-            <div className={b('user-meta')}>
-                <div className={b('user-avatar')}>
-                    <Avatar
-                        avatar={user.avatar}
-                        size={'m'}
-                    />
-                </div>
-                <div className={b('user-name')}>
-                    {user.name}
-                </div>
-            </div>
-            <div className={b('user-contacts')}>
-                {user.contacts.map(contact => (
-                    <div
-                        key={contact.type}
-                        className={b('user-contact-item')}
-                    >
-                        <Button
-                            size={'s'}
-                            variant={ButtonVariants.Action}
-                        >
-                            {CONTACTS_BUTTON_TEXT[contact.type]}
-                        </Button>
+            <div className={b('user')}>
+                <div className={b('user-meta')}>
+                    <div className={b('user-avatar')}>
+                        <Avatar
+                            avatar={user.avatar}
+                            size={'m'}
+                        />
                     </div>
-                ))}
+                    <div className={b('user-name')}>
+                        {user.name}
+                    </div>
+                </div>
+                <div className={b('user-contacts')}>
+                    {user.contacts.map(contact => (
+                        <div
+                            key={contact.type}
+                            className={b('user-contact-item')}
+                        >
+                            <Button
+                                size={'s'}
+                                variant={ButtonVariants.Action}
+                            >
+                                {CONTACTS_BUTTON_TEXT[contact.type]}
+                            </Button>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
