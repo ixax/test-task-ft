@@ -1,11 +1,12 @@
 import './DocumentItem.scss';
 
-import * as b_ from 'b_';
-import React from 'react';
 import {
     IDocumentItem,
-} from "src/index.types";
-import Status from "../Status/Status";
+} from 'src/index.types';
+
+import * as b_ from 'b_';
+import React from 'react';
+import Status from 'src/components/Status/Status';
 
 const b = b_.with('document-item');
 
@@ -30,6 +31,7 @@ export default function DocumentItem({
                     <img
                         className={b('pic-image')}
                         src={icon.url}
+                        alt=""
                     />
                 </div>
                 <div className={b('info')}>

@@ -2,7 +2,7 @@ import './Avatar.scss';
 
 import {
     IUser,
-} from "../../index.types";
+} from 'src/index.types';
 
 import * as b_ from 'b_';
 import React from 'react';

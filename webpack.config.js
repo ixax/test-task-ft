@@ -3,6 +3,8 @@
 const path = require('path');
 
 const AssetsPlugin = require('assets-webpack-plugin');
+const BrotliPlugin = require('brotli-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -13,18 +15,9 @@ const {
 } = process.env;
 
 const IS_DEVELOPMENT = NODE_ENV !== 'production';
-const OUTPUT_PATH = IS_DEVELOPMENT
-    ? '.build'
-    : 'docs';
 const NODE_PATH = path.resolve(NODE_PATH_CLI);
 const SRC_ROOT = path.join(NODE_PATH, 'src');
-const OUTPUT_STATIC_PATH = path.join(NODE_PATH, OUTPUT_PATH);
-
-function buildName(type, ext) {
-    return IS_DEVELOPMENT
-        ? `[name].${type}.${ext}`
-        : `[contenthash]/${type}.${ext}`;
-}
+const OUTPUT_STATIC_PATH = path.join(NODE_PATH, 'docs');
 
 module.exports = {
     performance: {
@@ -40,10 +33,9 @@ module.exports = {
         app: './index.tsx',
     },
     output: {
-        filename: buildName('bundle', 'js'),
         path: OUTPUT_STATIC_PATH,
-        publicPath: './',
-        globalObject: 'this',
+        filename: '[contenthash].bundle.js',
+        publicPath: '',
     },
     watchOptions: {
         aggregateTimeout: 300,
@@ -72,6 +64,19 @@ module.exports = {
     },
     devtool: 'source-map',
     plugins: [
+        !IS_DEVELOPMENT && new CompressionPlugin({
+            filename: '[path][base].gz[query]',
+            algorithm: 'gzip',
+            test: /\.(js|css|html)$/,
+            threshold: 10240,
+            minRatio: 0.8,
+        }),
+        !IS_DEVELOPMENT && new BrotliPlugin({
+            asset: '[path].br[query]',
+            test: /\.(js|css|html)$/,
+            threshold: 10240,
+            minRatio: 0.8,
+        }),
         new AssetsPlugin({
             filename: 'assets.json',
             prettyPrint: true,
@@ -80,7 +85,7 @@ module.exports = {
             update: true,
         }),
         new MiniCssExtractPlugin({
-            filename: buildName('bundle', 'css'),
+            filename: '[contenthash].bundle.css',
         }),
         new HtmlWebPackPlugin({
             template: './index.html',
@@ -91,7 +96,7 @@ module.exports = {
             patterns: [
                 {
                     from: 'public',
-                    to: OUTPUT_STATIC_PATH,
+                    to: path.join(OUTPUT_STATIC_PATH, 'static'),
                 },
             ],
         }),

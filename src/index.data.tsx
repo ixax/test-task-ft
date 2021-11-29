@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
     DocumentItemStatusCategories,
     IDocumentItem,
@@ -7,7 +7,7 @@ import {
     IUser,
     IWorkspace,
     UserContactTypes
-} from "./index.types";
+} from './index.types';
 
 export default {
     documents: {
@@ -15,7 +15,7 @@ export default {
             {
                 id: '1',
                 icon: {
-                    url: './documents/service-agreement.svg',
+                    url: './static/documents/service-agreement.svg',
                 },
                 name: 'Service Agreement',
                 updatedAt: '32 minutes ago',
@@ -27,7 +27,7 @@ export default {
             {
                 id: '2',
                 icon: {
-                    url: './documents/brancd-strategy.svg',
+                    url: './static/documents/brand-strategy.svg',
                 },
                 name: 'Brand Strategy',
                 updatedAt: '2 hours ago',
@@ -39,7 +39,7 @@ export default {
             {
                 id: '3',
                 icon: {
-                    url: './documents/service-agreement.svg',
+                    url: './static/documents/service-agreement.svg',
                 },
                 name: 'Service Agreement',
                 updatedAt: '5 hours ago',
@@ -64,12 +64,12 @@ export default {
     },
     gallery: {
         image: {
-            url: './behind-scenes-cover.png',
+            url: './static/behind-scenes-cover.png',
         },
     },
     manager: {
         avatar: {
-            url: './avatar2.png',
+            url: './static/avatar2.png',
         },
         name: 'Sarah Smith',
         contacts: [
@@ -129,7 +129,7 @@ export default {
         items: [{
             id: '1',
             icon: {
-                url: './runner.png',
+                url: './static/runner.png',
             },
             name: 'Reel',
             updatedAt: '3 hours ago',
@@ -144,7 +144,7 @@ export default {
     },
     user: {
         avatar: {
-            url: './avatar.png',
+            url: './static/avatar.png',
         },
     } as Partial<IUser>,
     welcome: {
@@ -160,7 +160,7 @@ export default {
         {
             id: '0',
             logo: {
-                url: './workspaces/wk-plus.png',
+                url: './static/workspaces/wk-plus.png',
             },
             notifications: {
                 count: 0,
@@ -170,7 +170,7 @@ export default {
         {
             id: '1',
             logo: {
-                url: './workspaces/asd.png',
+                url: './static/workspaces/asd.png',
             },
             notifications: {
                 count: 1,

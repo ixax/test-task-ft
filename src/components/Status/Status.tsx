@@ -2,7 +2,7 @@ import './Status.scss';
 
 import {
     IStatus,
-} from "src/index.types";
+} from 'src/index.types';
 
 import * as b_ from 'b_';
 import React from 'react';
