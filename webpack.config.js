@@ -13,9 +13,12 @@ const {
 } = process.env;
 
 const IS_DEVELOPMENT = NODE_ENV !== 'production';
+const OUTPUT_PATH = IS_DEVELOPMENT
+    ? '.build'
+    : 'docs';
 const NODE_PATH = path.resolve(NODE_PATH_CLI);
 const SRC_ROOT = path.join(NODE_PATH, 'src');
-const OUTPUT_STATIC_PATH = path.join(NODE_PATH, '.build');
+const OUTPUT_STATIC_PATH = path.join(NODE_PATH, OUTPUT_PATH);
 
 function buildName(type, ext) {
     return IS_DEVELOPMENT
