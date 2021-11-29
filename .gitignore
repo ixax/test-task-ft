@@ -1,6 +1,5 @@
 .awcache
 .idea
 node_modules
-.build
 .DS_Store
 npm-debug.*
