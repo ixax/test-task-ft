@@ -145,6 +145,29 @@ module.exports = {
                             limit: 1,
                         },
                     },
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            pngquant: {
+                                speed: IS_DEVELOPMENT ? 10 : 3,
+                                optimizationLevel: IS_DEVELOPMENT ? 0 : 7,
+                                verbose: false,
+                            },
+                            // https://github.com/svg/svgo#what-it-can-do
+                            svgo: {
+                                cleanupAttrs: true,
+                                removeDoctype: true,
+                                removeViewBox: true,
+                                removeComments: true,
+                                removeMetadata: true,
+                                removeDesc: true,
+                                removeEmptyAttrs: true,
+                                removeEmptyText: true,
+                                cleanupIDs: true,
+                                removeUnusedNS: true,
+                            },
+                        },
+                    },
                 ],
             },
         ],
