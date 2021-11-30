@@ -6,8 +6,8 @@
 
 .main-layout {
     display: flex;
-    max-width: 1600px;
     flex-direction: row;
+    width: 100%;
 
     &__toolbar {
         position: fixed;
@@ -18,9 +18,16 @@
         z-index: 100;
     }
 
-    &__widgets {
-        margin-left: var(--toolbarSize);
+    &__widgets-wrapper {
         width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-left: var(--toolbarSize);
+    }
+
+    &__widgets {
+        max-width: 1360px;
+        margin: 0 auto;
         padding: var(--verticalSpace) 66px;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
