@@ -19,6 +19,12 @@ const NODE_PATH = path.resolve(NODE_PATH_CLI);
 const SRC_ROOT = path.join(NODE_PATH, 'src');
 const OUTPUT_STATIC_PATH = path.join(NODE_PATH, 'docs');
 
+function buildBundleName(ext) {
+    return IS_DEVELOPMENT
+        ? `bundle.${ext}`
+        : `[contenthash].bundle.${ext}`;
+}
+
 module.exports = {
     performance: {
         maxEntrypointSize: Math.pow(10, 6),
@@ -34,7 +40,7 @@ module.exports = {
     },
     output: {
         path: OUTPUT_STATIC_PATH,
-        filename: '[contenthash].bundle.js',
+        filename: buildBundleName('js'),
         publicPath: '',
     },
     watchOptions: {
@@ -85,7 +91,7 @@ module.exports = {
             update: true,
         }),
         new MiniCssExtractPlugin({
-            filename: '[contenthash].bundle.css',
+            filename: buildBundleName('css'),
         }),
         new HtmlWebPackPlugin({
             template: './index.html',
