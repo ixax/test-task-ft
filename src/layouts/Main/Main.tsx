@@ -87,96 +87,98 @@ export default function MainLayout({
                     workspaces={workspaces}
                 />
             </div>
-            <div className={b('widgets-wrapper')}>
-                <div
-                    className={b('widgets')}
-                    style={{
-                        gridTemplateAreas: [
-                            projectsExpanded
-                                ? `'projects projects projects projects projects projects'`
-                                : `'welcome welcome welcome welcome projects projects'`,
-                            projectsExpanded
-                                ? `'projects projects projects projects projects projects'`
-                                : `'welcome welcome welcome welcome projects projects'`,
-                            `'review review recent-documents recent-documents gallery gallery'`,
-                            `'call manager recent-documents recent-documents gallery gallery'`,
-                        ].filter(Boolean).join(' '),
-                    }}
-                >
-                    {!projectsExpanded && (
+            <div className={b('content')}>
+                <div className={b('widgets-wrapper')}>
+                    <div
+                        className={b('widgets')}
+                        style={{
+                            gridTemplateAreas: [
+                                projectsExpanded
+                                    ? `'projects projects projects projects projects projects'`
+                                    : `'welcome welcome welcome welcome projects projects'`,
+                                projectsExpanded
+                                    ? `'projects projects projects projects projects projects'`
+                                    : `'welcome welcome welcome welcome projects projects'`,
+                                `'review review recent-documents recent-documents gallery gallery'`,
+                                `'call manager recent-documents recent-documents gallery gallery'`,
+                            ].filter(Boolean).join(' '),
+                        }}
+                    >
+                        {!projectsExpanded && (
+                            <div
+                                className={b('widget-item', {theme: 'dark'})}
+                                style={{
+                                    gridArea: 'welcome',
+                                }}
+                            >
+                                <WelcomeWidget
+                                    welcome={welcome}
+                                />
+                            </div>
+                        )}
                         <div
                             className={b('widget-item', {theme: 'dark'})}
                             style={{
-                                gridArea: 'welcome',
+                                gridArea: 'projects',
                             }}
                         >
-                            <WelcomeWidget
-                                welcome={welcome}
+                            <ProjectsWidget
+                                expanded={projectsExpanded}
+                                toggleExpanded={toggleProjectExpanded}
+                                projects={projects.projects}
+                                pendingReviews={projects.pendingReviews}
                             />
                         </div>
-                    )}
-                    <div
-                        className={b('widget-item', {theme: 'dark'})}
-                        style={{
-                            gridArea: 'projects',
-                        }}
-                    >
-                        <ProjectsWidget
-                            expanded={projectsExpanded}
-                            toggleExpanded={toggleProjectExpanded}
-                            projects={projects.projects}
-                            pendingReviews={projects.pendingReviews}
-                        />
-                    </div>
-                    <div
-                        className={b('widget-item', {theme: 'light'})}
-                        style={{
-                            gridArea: 'review',
-                        }}
-                    >
-                        <ReviewsWidget
-                            reviews={reviews}
-                        />
-                    </div>
-                    <div
-                        className={b('widget-item', {theme: 'light'})}
-                        style={{
-                            gridArea: 'call',
-                        }}
-                    >
-                        <CallWidget
-                            events={events}
-                        />
-                    </div>
-                    <div
-                        className={b('widget-item', {theme: 'light'})}
-                        style={{
-                            gridArea: 'manager',
-                        }}
-                    >
-                        <ManagerWidget
-                            user={manager}
-                        />
-                    </div>
-                    <div
-                        className={b('widget-item', {theme: 'light'})}
-                        style={{
-                            gridArea: 'recent-documents',
-                        }}
-                    >
-                        <RecentDocumentsWidget
-                            documents={documents}
-                        />
-                    </div>
-                    <div
-                        className={b('widget-item', {theme: 'dark'})}
-                        style={{
-                            gridArea: 'gallery',
-                        }}
-                    >
-                        <GalleryWidget
-                            image={gallery.image}
-                        />
+                        <div
+                            className={b('widget-item', {theme: 'light'})}
+                            style={{
+                                gridArea: 'review',
+                            }}
+                        >
+                            <ReviewsWidget
+                                reviews={reviews}
+                            />
+                        </div>
+                        <div
+                            className={b('widget-item', {theme: 'light'})}
+                            style={{
+                                gridArea: 'call',
+                            }}
+                        >
+                            <CallWidget
+                                events={events}
+                            />
+                        </div>
+                        <div
+                            className={b('widget-item', {theme: 'light'})}
+                            style={{
+                                gridArea: 'manager',
+                            }}
+                        >
+                            <ManagerWidget
+                                user={manager}
+                            />
+                        </div>
+                        <div
+                            className={b('widget-item', {theme: 'light'})}
+                            style={{
+                                gridArea: 'recent-documents',
+                            }}
+                        >
+                            <RecentDocumentsWidget
+                                documents={documents}
+                            />
+                        </div>
+                        <div
+                            className={b('widget-item', {theme: 'dark'})}
+                            style={{
+                                gridArea: 'gallery',
+                            }}
+                        >
+                            <GalleryWidget
+                                image={gallery.image}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
