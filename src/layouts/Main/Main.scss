@@ -29,12 +29,14 @@
     &__widgets-wrapper {
         max-width: 1360px;
         width: 100%;
+        position: relative;
     }
 
     &__widgets {
         margin: 0 auto;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(4, 170px);
         gap: 20px 20px;
         grid-auto-flow: row;
         grid-template-areas: 'welcome welcome welcome welcome projects projects'
@@ -44,17 +46,38 @@
     }
 
     &__widget-item {
+        height: 100%;
         border-radius: 24px;
-        overflow: hidden;
         position: relative;
 
         &_theme_dark {
             color: #fff;
-            background: linear-gradient(180deg, rgba(#1f1f24, .9) 0, rgba(#332f4d, .9) 100%) no-repeat;
+            background: linear-gradient(180deg, #1f1f24 0, #332f4d 100%) no-repeat;
         }
 
         &_theme_light {
             background: #f3f3f3;
+        }
+    }
+
+    &__widget-item_type_projects {
+
+    }
+
+    &__widget-item_type_gallery {
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main-layout_projects-expanded {
+        .main-layout {
+            &__widget-item_type_projects {
+                position: absolute;
+                right: 0;
+                height: 360px;
+                width: 100%;
+            }
         }
     }
 }

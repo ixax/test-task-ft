@@ -80,7 +80,9 @@ export default function MainLayout({
     ] = useState(false);
 
     return (
-        <div className={b()}>
+        <div className={b({
+            'projects-expanded': projectsExpanded,
+        })}>
             <div className={b('toolbar')}>
                 <Toolbar
                     user={user}
@@ -89,16 +91,11 @@ export default function MainLayout({
             </div>
             <div className={b('content')}>
                 <div className={b('widgets-wrapper')}>
-                    <div
-                        className={b('widgets')}
-                        style={{
-                            gridTemplateAreas: [
-                                ``,
-                            ].join(' '),
-                        }}
-                    >
+                    <div className={b('widgets')}>
                         <div
-                            className={b('widget-item', {theme: 'dark'})}
+                            className={b('widget-item', {
+                                theme: 'dark',
+                            })}
                             style={{
                                 gridArea: 'welcome',
                             }}
@@ -108,20 +105,28 @@ export default function MainLayout({
                             />
                         </div>
                         <div
-                            className={b('widget-item', {theme: 'dark'})}
+                            className={b('projects-wrapper')}
                             style={{
                                 gridArea: 'projects',
                             }}
                         >
-                            <ProjectsWidget
-                                expanded={projectsExpanded}
-                                toggleExpanded={toggleProjectExpanded}
-                                projects={projects.projects}
-                                pendingReviews={projects.pendingReviews}
-                            />
+                            <div className={b('widget-item', {
+                                type: 'projects',
+                                theme: 'dark',
+                            })}>
+                                <ProjectsWidget
+                                    expanded={projectsExpanded}
+                                    toggleExpanded={toggleProjectExpanded}
+                                    projects={projects.projects}
+                                    pendingReviews={projects.pendingReviews}
+                                />
+                            </div>
                         </div>
                         <div
-                            className={b('widget-item', {theme: 'light'})}
+                            className={b('widget-item', {
+                                type: 'review',
+                                theme: 'light',
+                            })}
                             style={{
                                 gridArea: 'review',
                             }}
@@ -131,7 +136,10 @@ export default function MainLayout({
                             />
                         </div>
                         <div
-                            className={b('widget-item', {theme: 'light'})}
+                            className={b('widget-item', {
+                                type: 'call',
+                                theme: 'light',
+                            })}
                             style={{
                                 gridArea: 'call',
                             }}
@@ -141,7 +149,10 @@ export default function MainLayout({
                             />
                         </div>
                         <div
-                            className={b('widget-item', {theme: 'light'})}
+                            className={b('widget-item', {
+                                type: 'manager',
+                                theme: 'light',
+                            })}
                             style={{
                                 gridArea: 'manager',
                             }}
@@ -151,7 +162,10 @@ export default function MainLayout({
                             />
                         </div>
                         <div
-                            className={b('widget-item', {theme: 'light'})}
+                            className={b('widget-item', {
+                                type: 'recent-documents',
+                                theme: 'light',
+                            })}
                             style={{
                                 gridArea: 'recent-documents',
                             }}
@@ -161,7 +175,10 @@ export default function MainLayout({
                             />
                         </div>
                         <div
-                            className={b('widget-item', {theme: 'dark'})}
+                            className={b('widget-item', {
+                                type: 'gallery',
+                                theme: 'dark',
+                            })}
                             style={{
                                 gridArea: 'gallery',
                             }}
