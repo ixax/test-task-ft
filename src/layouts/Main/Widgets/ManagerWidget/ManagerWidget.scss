@@ -1,9 +1,6 @@
 .manager-widget {
     padding: var(--widgetVPadding) var(--widgetHPadding);
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 
     &__title {
         text-align: center;

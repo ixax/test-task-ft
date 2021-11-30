@@ -50,6 +50,11 @@
     &__expanded-item {
         text-align: center;
         cursor: pointer;
+        margin-right: 30px;
+
+        &:last-child {
+            margin-right: 0;
+        }
     }
 
     &__expanded-item-stat,
@@ -101,6 +106,7 @@
         width: 100%;
         justify-content: center;
         position: relative;
+        margin-bottom: 40px;
     }
 
     &__collapsed-items-wrapper,
@@ -155,18 +161,10 @@
         &__expanded-items {
             overflow-x: auto;
         }
-
-        &__expanded-item {
-            margin-right: 30px;
-
-            &:last-child {
-                margin-right: 0;
-            }
-        }
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
     .projects-widget {
         padding-right: 10px;
         padding-left: 10px;
@@ -187,7 +185,7 @@
     }
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (hover: hover) and (pointer: fine) and (min-width: 1300px) {
     .projects-widget {
         &__expanded-item:hover &__expanded-item-progressbar {
             transform: scale(1.1);

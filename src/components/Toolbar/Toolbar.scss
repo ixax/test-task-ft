@@ -89,7 +89,7 @@
     }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1200px) {
     .toolbar {
         &__menu-item_type_search {
             position: fixed;
@@ -100,7 +100,7 @@
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
     .toolbar {
         flex-direction: row;
         padding: 0 20px;

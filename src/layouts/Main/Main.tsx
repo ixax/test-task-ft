@@ -93,29 +93,20 @@ export default function MainLayout({
                         className={b('widgets')}
                         style={{
                             gridTemplateAreas: [
-                                projectsExpanded
-                                    ? `'projects projects projects projects projects projects'`
-                                    : `'welcome welcome welcome welcome projects projects'`,
-                                projectsExpanded
-                                    ? `'projects projects projects projects projects projects'`
-                                    : `'welcome welcome welcome welcome projects projects'`,
-                                `'review review recent-documents recent-documents gallery gallery'`,
-                                `'call manager recent-documents recent-documents gallery gallery'`,
-                            ].filter(Boolean).join(' '),
+                                ``,
+                            ].join(' '),
                         }}
                     >
-                        {!projectsExpanded && (
-                            <div
-                                className={b('widget-item', {theme: 'dark'})}
-                                style={{
-                                    gridArea: 'welcome',
-                                }}
-                            >
-                                <WelcomeWidget
-                                    welcome={welcome}
-                                />
-                            </div>
-                        )}
+                        <div
+                            className={b('widget-item', {theme: 'dark'})}
+                            style={{
+                                gridArea: 'welcome',
+                            }}
+                        >
+                            <WelcomeWidget
+                                welcome={welcome}
+                            />
+                        </div>
                         <div
                             className={b('widget-item', {theme: 'dark'})}
                             style={{
