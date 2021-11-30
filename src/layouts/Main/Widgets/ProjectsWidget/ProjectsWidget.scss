@@ -49,6 +49,7 @@
 
     &__expanded-item {
         text-align: center;
+        cursor: pointer;
     }
 
     &__expanded-item-stat,
@@ -86,6 +87,7 @@
 
     &__expanded-item-progressbar {
         margin-bottom: 15px;
+        transition: transform .2s ease-in-out;
     }
 
     &__expanded-item-name {
@@ -181,6 +183,14 @@
             &:last-child {
                 margin-bottom: 0;
             }
+        }
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .projects-widget {
+        &__expanded-item:hover &__expanded-item-progressbar {
+            transform: scale(1.1);
         }
     }
 }
