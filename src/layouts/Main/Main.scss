@@ -2,6 +2,9 @@
     --widgetHPadding: 15px;
     --widgetVPadding: 15px;
     --toolbarSize: 66px;
+
+    --projectAnimationDuration: .6s;
+    --projectAnimationFunction: ease-out;
 }
 
 .main-layout {
@@ -60,25 +63,20 @@
         }
     }
 
-    &__widget-item_type_projects {
+    &__projects-wrapper {
+        overflow: hidden;
+    }
 
+    &_projects-expanded &__widget-item_type_projects {
+        transition: width var(--projectAnimationDuration) var(--projectAnimationFunction);
+    }
+
+    &__widget-item_type_projects {
+        overflow: hidden;
     }
 
     &__widget-item_type_gallery {
         overflow: hidden;
-    }
-}
-
-@media (min-width: 1200px) {
-    .main-layout_projects-expanded {
-        .main-layout {
-            &__widget-item_type_projects {
-                position: absolute;
-                right: 0;
-                height: 360px;
-                width: 100%;
-            }
-        }
     }
 }
 
@@ -87,6 +85,23 @@
         &__content {
             padding-right: 20px;
             padding-left: 20px;
+        }
+    }
+}
+
+@media (min-width: 1100px) {
+    .main-layout {
+        &_projects-expanded &__widget-item_type_projects {
+            transition: width var(--projectAnimationDuration) var(--projectAnimationFunction);
+            width: 100%;
+        }
+
+        &__widget-item_type_projects {
+            transition-duration: calc(var(--projectAnimationDuration) / 2);
+            position: absolute;
+            right: 0;
+            top: 0;
+            overflow: hidden;
         }
     }
 }
@@ -111,6 +126,7 @@
 
         &__widgets {
             grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
             grid-template-areas: 'welcome welcome'
                 'projects projects'
                 'review review'

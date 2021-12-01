@@ -13,7 +13,7 @@ const b = b_.with('projects-widget');
 
 interface IProps {
     expanded: boolean;
-    toggleExpanded: (value: boolean) => void;
+    toggleExpanded: () => void;
     pendingReviews: {
         count: number;
     };
@@ -118,7 +118,7 @@ export default function ProjectsWidget({
             )}
             <div
                 className={b('toggle-button')}
-                onClick={() => toggleExpanded(!expanded)}
+                onClick={() => toggleExpanded()}
             />
         </div>
     );
