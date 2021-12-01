@@ -2,6 +2,9 @@
     --widgetHPadding: 15px;
     --widgetVPadding: 15px;
     --toolbarSize: 66px;
+
+    --projectAnimationDuration: .6s;
+    --projectAnimationFunction: ease-out;
 }
 
 .main-layout {
@@ -29,12 +32,14 @@
     &__widgets-wrapper {
         max-width: 1360px;
         width: 100%;
+        position: relative;
     }
 
     &__widgets {
         margin: 0 auto;
         display: grid;
         grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(4, 170px);
         gap: 20px 20px;
         grid-auto-flow: row;
         grid-template-areas: 'welcome welcome welcome welcome projects projects'
@@ -44,18 +49,34 @@
     }
 
     &__widget-item {
+        height: 100%;
         border-radius: 24px;
-        overflow: hidden;
         position: relative;
 
         &_theme_dark {
             color: #fff;
-            background: linear-gradient(180deg, rgba(#1f1f24, .9) 0, rgba(#332f4d, .9) 100%) no-repeat;
+            background: linear-gradient(180deg, #1f1f24 0, #332f4d 100%) no-repeat;
         }
 
         &_theme_light {
             background: #f3f3f3;
         }
+    }
+
+    &__projects-wrapper {
+        overflow: hidden;
+    }
+
+    &_projects-expanded &__widget-item_type_projects {
+        transition: width var(--projectAnimationDuration) var(--projectAnimationFunction);
+    }
+
+    &__widget-item_type_projects {
+        overflow: hidden;
+    }
+
+    &__widget-item_type_gallery {
+        overflow: hidden;
     }
 }
 
@@ -64,6 +85,23 @@
         &__content {
             padding-right: 20px;
             padding-left: 20px;
+        }
+    }
+}
+
+@media (min-width: 1100px) {
+    .main-layout {
+        &_projects-expanded &__widget-item_type_projects {
+            transition: width var(--projectAnimationDuration) var(--projectAnimationFunction);
+            width: 100%;
+        }
+
+        &__widget-item_type_projects {
+            transition-duration: calc(var(--projectAnimationDuration) / 2);
+            position: absolute;
+            right: 0;
+            top: 0;
+            overflow: hidden;
         }
     }
 }
@@ -88,6 +126,7 @@
 
         &__widgets {
             grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
             grid-template-areas: 'welcome welcome'
                 'projects projects'
                 'review review'

@@ -62,6 +62,13 @@
         color: #fff;
     }
 
+    &__expanded-item-stat,
+    &__expanded-item-name {
+        animation-duration: calc(var(--projectAnimationDuration) * 3);
+        animation-timing-function: var(--projectAnimationFunction);
+        animation-name: opacityIn;
+    }
+
     &__expanded-item-stat {
         position: absolute;
         top: 0;
@@ -190,5 +197,15 @@
         &__expanded-item:hover &__expanded-item-progressbar {
             transform: scale(1.1);
         }
+    }
+}
+
+@keyframes opacityIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
